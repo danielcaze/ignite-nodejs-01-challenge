@@ -36,7 +36,7 @@ export const routes = [
     handler(req, res) {
       const { title, description } = req.body;
 
-      if (!title || !description) {
+      if (typeof title !== "string" || typeof description !== "string") {
         return res.writeHead(400).end(
           JSON.stringify(
             {
